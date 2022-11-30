@@ -1,0 +1,11 @@
+<launch>
+
+  <include file="$(find ov_msckf)/launch/subscribe.launch">
+    <arg name="config" value="euroc_mav" />
+  </include>
+  
+  <node name="viewer" pkg="rviz" type="rviz" args="-d /catkin_ws/src/open_vins/ov_msckf/launch/display.rviz" />
+  
+  <node name="player" pkg="rosbag" type="play" output="screen" args="/datasets/V1_01_easy.bag" />
+  
+</launch>
